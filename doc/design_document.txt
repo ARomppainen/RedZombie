@@ -1,0 +1,99 @@
+ZombieRunner - roguelike
+
+- juostaan pakoon zombeja (ja ehkä joitain muitakin ötököitä)
+- pelaajahahmo on survivalisti, joka pystyy valitsemaan kasan erikoisboonuksia (wishlist!)
+- peli koostuu aina yhdestä ruudusta, jossa on tavoitteena päästä seuraavaan niin pitkään kuin pystyy
+-- peli loppuu siis silloin, kun pelaajahahmo kuolee / pelaaja lopettaa pelin
+
+esineet:
+- pistooli
+-- ammukset
+- puukko
+- ensiapupakkaus
+- kranaatti
+- taskulamppu
+
+sekalaista:
+- huoneet voivat olla joko valaistuja tai pimeitä
+- ovet voivat olla lukittuja
+-- avaimet (?)
+
+
+
+toiminnot:
+- liikkuminen (hiipiminen, normaali, juoksu)
+-- "stance"
+- ampuminen (pistoolilla)
+- lähitaistelu (nyrkki, puukko)
+- esineiden käyttö
+-- parantaminen ensiapupakkauksella
+-- kranaatin heittäminen ja räjähdys
+	-> seinien mahdollinen hajoaminen
+	-> seinien vahvuus...
+-- taskulamppu päälle / pois päältä
+- esineiden poimiminen
+- esineiden katsominen inventaariossa
+- esineiden ottaminen käyttöön / pois käytöstä (equipment, quickbar)
+- ovien avaaminen / sulkeminen
+
+
+
+AI:
+- tilakone
+- pathfinding (A*)
+- reagoi ääniin (liikkuminen, lähitaistelu, ampuminen, kranaatit jne)
+- reagoi valoon
+
+
+pelihahmojen statistiikat:
+- elämäpisteet
+- nopeus (hiiviskely / juoksu vaikuttaa tähän)
+- inventaario
+
+NÄPPÄINKOMENNOT:
+
+Pelinäkymä:
+
+- alt + 'q':	lopeta peli
+- arrow keys:	liikkuminen, lähitaistelu
+- TAB:		vaihda "stancea"
+- 'f', 'F': 	siirry tähtäintilaan	"fire"
+- 'e', 'E': 	avaa inventaario	"equipment"
+- 'd', 'D': 	avaa / sulje ovi	"door"
+- 'c', 'C', 	kerää esine maasta	"collect"'
+- number keys:	käytä esinettä
+
+Tähtäintila:
+
+- arrow keys:	siirrä tähtäintä
+- SPACEBAR	siirrä tähtäin seuraavaan kohteeseen
+- + / -		siirrä tähtäin seuraavaan / edelliseen kohteeseen
+- 'f', 'F'	ammu
+- ESC		palaa takaisin
+
+Inventaario:
+
+- arrow keys	siirry item slotista toiseen
+- 
+
+
+pelikenttäkuvaus:
+
+.................
+.................
+.................
+.................
+.................
+.................
+.................
+
+Selitteet:
+
+@ pelaajahahmo
+z zombi
+. lattia
+# seinä
+| suljettu ovi
+- suljettu ovi
+/ avattu ovi
+% esine (maassa)

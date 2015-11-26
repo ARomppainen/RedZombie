@@ -1,0 +1,9 @@
+Core:
+
+Extend:
+
+- pisteet + high scores
+
+Wishlist:
+
+- nälkä + ruoka
