@@ -1,0 +1,35 @@
+- fixattu pelikenttä, jossa kaikkia mahdollisia elementtejä
+-- viholliset
+
+- liikkuminen
+-- ei saa törmätä seiniin
+
+- melee-hyökkäys
+- ampuminen
+- esineiden käyttö
+-- ensiapupakkaus
+-- kranaatti
+-- taskulamppu
+
+- pelaajahahmolle esineitä ja inventaario
+-- jonkinlaiset perus statsit myös
+
+- hahmoille liikkumis / action nopeus ja priorisointi
+
+- line of sight CHECK
+
+
+GAMES STATES
+
+- pelikenttä
+- targetointi
+- animointi
+- esineet
+- inventaario
+
+
+ESINEITÄ
+
+- ensiapupakkaus
+- kranaatti
+- taskulamppu / lyhty

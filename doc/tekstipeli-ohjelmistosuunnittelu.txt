@@ -1,0 +1,6 @@
+pidä tietorakenne ja renderöinti erillään
+
+Kaksi renderöintivaihtoehtoa:
+
+- piirrä vain päivitykset
+- piirrä ruutu jatkuvasti uudelleen (testaa toimivuus!)

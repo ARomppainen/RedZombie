@@ -1,0 +1,15 @@
+ETÄTEHTÄVÄ
+Suunnittele tekstipeli:
+
+- Tarina, juoni, tavoite
+- Hahmot, henkilöt
+- Ympäristö, paikat
+- Aseet, laitteet, välineet
+- Ovet, portit, salakuopat, ansat
+- Ongelmanratkaisu
+
+Kuvaus pelkkänä tekstinä (tässä vaiheessa) myöhemmin tehtävää toteutusta varten. Suunnittele 
+tilanteet: JOS pelaaja tekee sitä tai tätä, jos Pelaajalla on se tai tuo... mitä tapahtuu? Mikä lisääntyy, 
+mikä vähenee? Miten peli päättyy?
+Aikataulu: viimeistään marraskuun loppuun (30.11) mennessä.
+Käytä hyväksi dokumentoinnin työvälineitä, eli toimisto-ohjelmia (Timo opettaa marraskuussa).
