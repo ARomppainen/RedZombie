@@ -6,15 +6,15 @@
 
 - ovien avaaminen / sulkeminen CHECK
 
-- melee-hyökkäys
+- lähitaistelu
 - ampuminen
 - esineiden käyttö
 -- ensiapupakkaus
 -- kranaatti
--- taskulamppu
+-- taskulamppu / lyhty
 
-- pelaajahahmolle esineitä ja inventaario
--- jonkinlaiset perus statsit myös
+- pelaajahahmolle esineitä ja inventaario DOING
+-- jonkinlaiset perus statsit myös CHECK
 
 - hahmoille liikkumis / action nopeus ja priorisointi
 
@@ -23,11 +23,11 @@
 
 GAMES STATES
 
-- pelikenttä
+- pelikenttä DOING
 - targetointi
 - animointi
 - esineet
-- inventaario
+- inventaario DOING
 
 
 ESINEITÄ

@@ -1,33 +1,35 @@
 package redzombie.game.items;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
 
-public class Inventory implements AbstractInventory {
+public class Inventory<T> implements AbstractInventory<T> {
 
-    private final List<AbstractItem> items;
+    private final List<T> items;
     
     public Inventory() {
         items = new ArrayList<>();
     }
     
     @Override
-    public boolean contains(AbstractItem item) {
+    public boolean contains(T item) {
         return items.contains(item);
     }
 
     @Override
-    public int index(AbstractItem item) {
+    public int index(T item) {
         return items.indexOf(item);
     }
 
     @Override
-    public AbstractItem get(int index) {
+    public T get(int index) {
         return items.get(index);
     }
 
     @Override
-    public boolean remove(AbstractItem item) {
+    public boolean remove(T item) {
         return items.remove(item);
     }
 
@@ -39,5 +41,15 @@ public class Inventory implements AbstractInventory {
     @Override
     public void add(AbstractItem item) {
         item.addToInventory(this);
-    } 
+    }
+    
+    @Override
+    public Collection getCollection() {
+        return items;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return items.iterator();
+    }
 }

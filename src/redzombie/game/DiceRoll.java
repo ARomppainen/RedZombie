@@ -33,4 +33,25 @@ public class DiceRoll {
         this.max = max;
         this.offset = offset;
     }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        
+        if (times > 1) {
+            sb.append(times).append(" * ");
+        }
+        
+        sb.append("(");
+        sb.append(min).append("-").append(max);
+        sb.append(")");
+        
+        if (offset > 0) {
+            sb.append(" + ").append(" ").append(offset);
+        } else if (offset < 0) {
+            sb.append(" - ").append(" ").append(offset);
+        }
+        
+        return sb.toString();
+    }
 }

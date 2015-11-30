@@ -1,10 +1,13 @@
 package redzombie.game.items;
 
-public interface AbstractInventory {
-    public boolean contains(AbstractItem item);
-    public int index(AbstractItem item);
-    public AbstractItem get(int index);
-    public boolean remove(AbstractItem item);
+import java.util.Collection;
+
+public interface AbstractInventory<T> extends Iterable<T> {
+    public boolean contains(T item);
+    public int index(T item);
+    public T get(int index);
+    public boolean remove(T item);
     public boolean remove(int index);
     public void add(AbstractItem item);
+    public Collection getCollection();
 }

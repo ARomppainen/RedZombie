@@ -7,15 +7,15 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import redzombie.game.Game;
+import redzombie.rendering.AbstractRenderer;
 import redzombie.rendering.Renderer;
-import redzombie.rendering.RendererLOS;
 
 public class RedZombie {
     
     private Screen screen;
     private Terminal terminal;
     private Game game;
-    private Renderer renderer;
+    private AbstractRenderer renderer;
     
     public RedZombie() {
         
@@ -35,13 +35,17 @@ public class RedZombie {
         screen.setCursorPosition(null); // hide cursor
         
         game = new Game(screen);
-        renderer = new RendererLOS(screen, terminal);
+        renderer = new Renderer(screen, terminal);
     }
     
     private void mainLoop() {
-        while(game.update()) {
-            renderer.drawGameArea(game);
-            renderer.drawStatistics(game);
+        while(game.isRunning()) {
+            boolean pop = game.update();
+            renderer.render(game);
+            
+            if (pop) {
+                game.popState();
+            }
         }
     }
     

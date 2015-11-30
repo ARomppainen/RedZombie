@@ -1,11 +1,14 @@
 package redzombie.game;
 
+import com.googlecode.lanterna.screen.Screen;
+import java.util.Stack;
+
 import redzombie.game.characters.AbstractPerson;
 import redzombie.game.characters.PersonFactory;
 import redzombie.game.level.Level;
-import redzombie.util.Direction;
-import com.googlecode.lanterna.input.Key;
-import com.googlecode.lanterna.screen.Screen;
+import redzombie.game.state.AbstractGameState;
+import redzombie.game.state.GameState;
+import redzombie.game.state.LevelState;
 
 public class Game {
     
@@ -13,43 +16,22 @@ public class Game {
     private Level level;
     private AbstractPerson player;
     
+    private Stack<AbstractGameState> states;
+    
     public Game(Screen screen) {
         this.screen = screen;
         
         level = new Level();
         player = PersonFactory.instance().createPlayer();
+        
+        states = new Stack<>();
+        states.push(new LevelState(this));
+        //levelState = new LevelState(this);
     }
     
     public boolean update() {
-        Key k = screen.readInput();
-        
-        if (k != null ) {
-            if (k.isAltPressed() && k.getCharacter() == 'q') {
-                return false;
-            }
-            
-            if (k.getKind() == Key.Kind.ArrowDown) {
-                if (player.canMove(Direction.DOWN, level)) {
-                    player.move(Direction.DOWN);
-                }
-            } else if (k.getKind() == Key.Kind.ArrowLeft) {
-                if (player.canMove(Direction.LEFT, level)) {
-                    player.move(Direction.LEFT);
-                }
-            } else if (k.getKind() == Key.Kind.ArrowRight) {
-                if (player.canMove(Direction.RIGHT, level)) {
-                    player.move(Direction.RIGHT);
-                }
-            } else if (k.getKind() == Key.Kind.ArrowUp) {
-                if (player.canMove(Direction.UP, level)) {
-                    player.move(Direction.UP);
-                }
-            } else if (k.getCharacter() == 'c' || k.getCharacter() == 'C') {
-                player.tryOpenDoor(level);
-            }
-        }
-        
-        return true;
+        //return currentState.update();
+        return states.peek().update();
     }
     
     public Level getLevel() {
@@ -58,5 +40,26 @@ public class Game {
     
     public AbstractPerson getPlayer() {
         return player;
+    }
+    
+    public Screen getScreen() {
+        return screen;
+    }
+    
+    public GameState getCurrentState() {
+        //return currentState.getState();
+        return states.peek().getState();
+    }
+    
+    public boolean isRunning() {
+        return states.size() > 0;
+    }
+    
+    public void pushState(AbstractGameState s) {
+        states.push(s);
+    }
+    
+    public void popState() {
+        states.pop();
     }
 }

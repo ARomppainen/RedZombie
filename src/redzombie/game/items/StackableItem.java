@@ -18,7 +18,7 @@ public abstract class StackableItem extends AbstractItem {
             StackableItem item = (StackableItem)inv.get(index);
             item.stackSize += this.stackSize;
         } else {
-            inv.add(this);
+            super.addToInventory(inv);
         }
     }
     
