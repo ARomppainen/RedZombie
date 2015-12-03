@@ -1,9 +1,17 @@
 package redzombie.game.level;
 
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.Terminal.Color;
 import java.util.ArrayList;
 import redzombie.util.Vec2;
 
+/**
+ * The Level class.
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public class Level {
     public static final int WIDTH = 80;
     public static final int HEIGHT = 25;
@@ -31,7 +39,7 @@ public class Level {
             tiles.get(i).set(12, new Tile("#", Terminal.Color.RED, true, false));
         }
         
-        tiles.get(13).get(11).obj = GameObjectFactory.instance().createVerticalDoor(false);
+        tiles.get(13).get(11).obj = GameObjectFactory.instance().createVerticalDoor(Color.MAGENTA, false);
     }
     
     public Tile getTile(int x, int y) {

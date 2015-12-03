@@ -1,17 +1,26 @@
 package redzombie.game.level;
 
-import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.Terminal.Color;
 
+/**
+ * A simple two state door.
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public class Door implements AbstractGameObject {
 
     private final String symbolOpen;
     private final String symbolClosed;
+    private Color color;
     
-    boolean open;
+    private boolean open;
     
-    public Door(String symbolOpen, String symbolClosed, boolean isOpen) {
+    public Door(String symbolOpen, String symbolClosed, Color color, boolean isOpen) {
         this.symbolOpen = symbolOpen;
         this.symbolClosed = symbolClosed;
+        this.color = color;
         this.open = isOpen;
     }
     
@@ -30,8 +39,8 @@ public class Door implements AbstractGameObject {
     }
     
     @Override
-    public Terminal.Color getColor() {
-        return Terminal.Color.MAGENTA;
+    public Color getColor() {
+        return color;
     }
     
     @Override

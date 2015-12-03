@@ -2,6 +2,13 @@ package redzombie.game.items;
 
 import java.util.Objects;
 
+/**
+ * The base class for collectible items in the game.
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public abstract class AbstractItem {
     private String name;
     
@@ -15,10 +22,6 @@ public abstract class AbstractItem {
     
     public void setName(String name) {
         this.name = name;
-    }
-    
-    public void addToInventory(AbstractInventory inv) {
-        inv.getCollection().add(this);
     }
     
     @Override

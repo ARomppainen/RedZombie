@@ -1,10 +1,16 @@
 package redzombie.game.items;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * The main Inventory implementation.
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public class Inventory<T> implements AbstractInventory<T> {
 
     private final List<T> items;
@@ -39,13 +45,20 @@ public class Inventory<T> implements AbstractInventory<T> {
     }
     
     @Override
-    public void add(AbstractItem item) {
-        item.addToInventory(this);
-    }
-    
-    @Override
-    public Collection getCollection() {
-        return items;
+    public void add(T item) {
+        if (item instanceof StackableItem) {
+            int index = index(item);
+            
+            if (index >= 0) {
+                StackableItem sItem = (StackableItem)item;
+                StackableItem item2 = (StackableItem)get(index);
+                item2.add(sItem.getCount());
+            } else {
+                items.add(item);
+            }
+        } else {
+            items.add(item);
+        }
     }
 
     @Override

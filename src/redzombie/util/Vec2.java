@@ -1,5 +1,12 @@
 package redzombie.util;
 
+/**
+ * 
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public class Vec2 {
     public int x;
     public int y;

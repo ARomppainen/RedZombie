@@ -1,10 +1,17 @@
 package redzombie.game.level;
 
-import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.Terminal.Color;
 
+/**
+ * The base class for all the static (interactable) objects found in levels.
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public interface AbstractGameObject {
     public String getSymbol();
-    public Terminal.Color getColor();
+    public Color getColor();
     public boolean isPassable();
     public GameObjectType getType();
 }

@@ -5,7 +5,13 @@ import java.util.List;
 import redzombie.game.level.AbstractGameObject;
 import redzombie.game.level.Level;
 
-
+/**
+ * 
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public abstract class Util {
     
     //rosettacode.org/wiki/Bitmap/Bresenham's_line_algorithm#Java

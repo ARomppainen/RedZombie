@@ -10,7 +10,14 @@ import redzombie.game.items.StackableItem;
 import redzombie.game.level.Tile;
 import redzombie.util.Util;
 
-public class Renderer extends AbstractRenderer {
+/**
+ * Renderer implementation.
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
+public class Renderer implements AbstractRenderer {
     
     Screen screen;
     Terminal terminal;

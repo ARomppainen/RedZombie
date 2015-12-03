@@ -3,6 +3,13 @@ package redzombie.game.level;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.Terminal.Color;
 
+/**
+ * The Tile class.
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public class Tile {
     public String symbol;
     public Color color;

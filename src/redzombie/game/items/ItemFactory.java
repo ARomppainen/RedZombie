@@ -2,6 +2,13 @@ package redzombie.game.items;
 
 import redzombie.game.DiceRoll;
 
+/**
+ * A singleton factory implementation for item creation.
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public class ItemFactory implements AbstractItemFactory {
     
     private static AbstractItemFactory instance = null;
@@ -10,6 +17,9 @@ public class ItemFactory implements AbstractItemFactory {
         
     }
     
+    /**
+     * @return The singleton instance.
+     */
     public static AbstractItemFactory instance() {
         if (instance == null) {
             instance = new ItemFactory();
@@ -41,7 +51,7 @@ public class ItemFactory implements AbstractItemFactory {
         return new BuffItem(
                 "Health Kit",
                 1,
-                BuffEffect.HEALING_INSTANT,
+                Buff.HEALING_INSTANT,
                 new DiceRoll(1, 10, 5));
     }
 

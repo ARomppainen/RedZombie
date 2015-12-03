@@ -1,8 +1,14 @@
 package redzombie.game.characters;
 
-import redzombie.game.characters.Person;
 import com.googlecode.lanterna.terminal.Terminal;
 
+/**
+ * A singleton factory implementation for character creation.
+ * 
+ * @author  Aleksi Romppainen <aromppa@gmail.com>
+ * @version 0.1
+ * @since 30.11.2015
+ */
 public class PersonFactory implements AbstractPersonFactory {
 
     private static AbstractPersonFactory instance = null;
@@ -11,6 +17,9 @@ public class PersonFactory implements AbstractPersonFactory {
         
     }
     
+    /**
+     * @return The singleton instance.
+     */
     public static AbstractPersonFactory instance() {
         if (instance == null) {
             instance = new PersonFactory();
