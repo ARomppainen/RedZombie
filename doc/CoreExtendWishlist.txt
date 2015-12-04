@@ -3,6 +3,7 @@ Core:
 Extend:
 
 - pisteet + high scores
+- point-buy systeemi
 
 Wishlist:
 

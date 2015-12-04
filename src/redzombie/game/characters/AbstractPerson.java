@@ -3,6 +3,7 @@ package redzombie.game.characters;
 import redzombie.game.level.Level;
 import com.googlecode.lanterna.terminal.Terminal.Color;
 import java.util.List;
+import redzombie.game.DiceRoll;
 import redzombie.game.items.AbstractInventory;
 import redzombie.game.items.AbstractItem;
 import redzombie.game.items.AmmoType;
@@ -44,9 +45,13 @@ public abstract class AbstractPerson {
         this.maxHealth = health;
         this.currentHealth = health;
         
-        this.inventory = new Inventory<AbstractItem>();
+        this.inventory = new Inventory<>();
         
-        inventory.add(ItemFactory.instance().createAmmo("asasdasdd", 5, AmmoType.PISTOL_AMMO));
+        inventory.add(ItemFactory.instance().createGrenade());
+        inventory.add(ItemFactory.instance().createGrenade());
+        inventory.add(ItemFactory.instance().createGrenade());
+        inventory.add(ItemFactory.instance().createGrenade());
+        inventory.add(ItemFactory.instance().createAmmo("9mm bullet", new DiceRoll(6), 5, AmmoType.PISTOL_AMMO));
         inventory.add(ItemFactory.instance().createHealthKit());
         inventory.add(ItemFactory.instance().createKnife());
         inventory.add(ItemFactory.instance().createHealthKit());

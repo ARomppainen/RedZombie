@@ -6,7 +6,7 @@ import redzombie.game.level.AbstractGameObject;
 import redzombie.game.level.Level;
 
 /**
- * 
+ * Abstract class containing many (static) utility methods.
  * 
  * @author  Aleksi Romppainen <aromppa@gmail.com>
  * @version 0.1
@@ -79,6 +79,66 @@ public abstract class Util {
         }
     
         return true;
+    }
+    
+    public static List<Vec2> getLine(int x1, int y1, int x2, int y2) {
+        List<Vec2> points = new ArrayList<>();
+        
+        // delta of exact value and rounded value of the dependant variable
+        int d = 0;
+
+        int dy = Math.abs(y2 - y1);
+        int dx = Math.abs(x2 - x1);
+
+        int dy2 = (dy << 1); // slope scaling factors to avoid floating
+        int dx2 = (dx << 1); // point
+
+        int ix = x1 < x2 ? 1 : -1; // increment direction
+        int iy = y1 < y2 ? 1 : -1;
+        
+        if (dy <= dx) {
+            for (;;) {
+                if (x1 < 0 || x1 >= Level.WIDTH || y1 < 0 || y1 >= Level.HEIGHT) {
+                    break;
+                }
+                
+                points.add(new Vec2(x1, y1));
+                
+                if (x1 == x2) {
+                    break;
+                }
+                
+                x1 += ix;
+                d += dy2;
+                
+                if (d > dx) {
+                    y1 += iy;
+                    d -= dx2;
+                }
+            }
+        } else {
+            for (;;) {
+                if (x1 < 0 || x1 >= Level.WIDTH || y1 < 0 || y1 >= Level.HEIGHT) {
+                    break;
+                }
+                
+                points.add(new Vec2(x1, y1));
+                
+                if (y1 == y2) {
+                    break;
+                }
+
+                y1 += iy;
+                d += dx2;
+
+                if (d > dy) {
+                    x1 += ix;
+                    d -= dy2;
+                }
+            }
+        }
+    
+        return points;
     }
     
     public static List<AbstractGameObject> findObjectsNextTo(Level l, int x, int y) {

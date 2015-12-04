@@ -21,7 +21,7 @@ public class InventoryState extends AbstractGameState {
     }
 
     @Override
-    public GameState getState() {
+    public GameState getType() {
         return GameState.STATE_INVENTORY;
     }
 

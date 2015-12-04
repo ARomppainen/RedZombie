@@ -2,6 +2,7 @@ package redzombie.game.state;
 
 import com.googlecode.lanterna.input.Key;
 import redzombie.game.Game;
+import redzombie.game.items.CircleAOE;
 import redzombie.util.Direction;
 
 /**
@@ -18,7 +19,7 @@ public class LevelState extends AbstractGameState {
     }
 
     @Override
-    public GameState getState() {
+    public GameState getType() {
         return GameState.STATE_LEVEL;
     }
 
@@ -51,6 +52,8 @@ public class LevelState extends AbstractGameState {
                 game.getPlayer().tryOpenDoor(game.getLevel());
             } else if (k.getCharacter() == 'e' || k.getCharacter() == 'E') {
                 game.pushState(new InventoryState(game));
+            } else if (k.getCharacter() == 't' || k.getCharacter() == 'T') {
+                game.pushState(new TargetingState(game, new CircleAOE(game.getPlayer().getPosition(), 2.5)));
             }
         }
         

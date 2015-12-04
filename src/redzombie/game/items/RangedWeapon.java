@@ -11,8 +11,6 @@ import redzombie.game.DiceRoll;
  */
 public class RangedWeapon extends AbstractItem implements AbstractRangedWeapon {
 
-    private DiceRoll damageRoll;
-    
     private AmmoType ammoType;
     private int clipSize;
     private int ammoCount;
@@ -21,10 +19,9 @@ public class RangedWeapon extends AbstractItem implements AbstractRangedWeapon {
     
     private double range;
     
-    public RangedWeapon(String name, DiceRoll damageRoll, AmmoType ammoType, int clipSize, double range) {
+    public RangedWeapon(String name, AmmoType ammoType, int clipSize, double range) {
         super(name);
         
-        this.damageRoll = damageRoll;
         this.ammoType = ammoType;
         this.clipSize = clipSize;
         
@@ -36,7 +33,11 @@ public class RangedWeapon extends AbstractItem implements AbstractRangedWeapon {
 
     @Override
     public DiceRoll getDamageRoll() {
-        return damageRoll;
+        if(ammo == null) {
+            return null;
+        } else {
+            return ammo.getDamageRoll();
+        }
     }
 
     @Override
@@ -51,5 +52,14 @@ public class RangedWeapon extends AbstractItem implements AbstractRangedWeapon {
     
     public void reload() {
         // TODO: method stub
+    }
+
+    @Override
+    public AreaOfEffect getAOE() {
+        if (ammo == null) {
+            return null;
+        } else {
+            return ammo.getAOE();
+        }
     }
 }

@@ -1,5 +1,7 @@
 package redzombie.game.items;
 
+import redzombie.game.DiceRoll;
+
 /**
  * An abstract factory for item creation.
  * 
@@ -8,7 +10,7 @@ package redzombie.game.items;
  * @since 30.11.2015
  */
 public interface AbstractItemFactory {
-    public AbstractItem createAmmo(String name, int ammoCount, AmmoType type);
+    public AbstractItem createAmmo(String name, DiceRoll damageRoll, int ammoCount, AmmoType type);
     public AbstractItem createFlashlight();
     public AbstractItem createGrenade();
     public AbstractItem createHealthKit();

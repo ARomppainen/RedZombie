@@ -13,12 +13,22 @@ public class ThrowingWeapon extends StackableItem implements AbstractRangedWeapo
 
     private final DiceRoll damageRoll;
     private double range;
+    private AreaOfEffect aoe;
     
     public ThrowingWeapon(String name, int count, DiceRoll damageRoll, double range) {
         super(name, count);
         
         this.damageRoll = damageRoll;
         this.range = range;
+        this.aoe = null;
+    }
+    
+    public ThrowingWeapon(String name, int count, DiceRoll damageRoll, double range, AreaOfEffect aoe) {
+        super(name, count);
+        
+        this.damageRoll = damageRoll;
+        this.range = range;
+        this.aoe = aoe;
     }
 
     @Override
@@ -29,5 +39,10 @@ public class ThrowingWeapon extends StackableItem implements AbstractRangedWeapo
     @Override
     public double getRange() {
         return range;
+    }
+
+    @Override
+    public AreaOfEffect getAOE() {
+        return aoe;
     }
 }

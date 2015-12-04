@@ -35,3 +35,18 @@ ESINEITÄ
 - ensiapupakkaus
 - kranaatti
 - taskulamppu / lyhty
+
+
+
+TEKOÄLYTTÖMYYS
+- reitinhaku (A*)
+- tilakone
+
+
+DOING:
+- kranaatin heittäminen
+-- deltaTime animointiin	CHECK
+-- area of effect, ympyrä	CHECK
+-- targetointistate		DOING
+-- targetoinnin renderöinti	DOING
+--- targettireitin valinta	CHECK

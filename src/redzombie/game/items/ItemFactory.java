@@ -29,9 +29,10 @@ public class ItemFactory implements AbstractItemFactory {
     }
 
     @Override
-    public AbstractItem createAmmo(String name, int ammoCount, AmmoType type) {
+    public AbstractItem createAmmo(String name, DiceRoll damageRoll, int ammoCount, AmmoType type) {
         return new Ammo(
                 name,
+                damageRoll,
                 ammoCount,
                 type);
     }
@@ -43,7 +44,11 @@ public class ItemFactory implements AbstractItemFactory {
 
     @Override
     public AbstractItem createGrenade() {
-        return null; // TODO: method stub
+        return new ThrowingWeapon(
+                "Grenade",
+                1,
+                new DiceRoll(10),
+                2.5);
     }
 
     @Override

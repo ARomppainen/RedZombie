@@ -1,7 +1,7 @@
 package redzombie.util;
 
 /**
- * 
+ * Simple 2-dimensional vector class, used mostly to represent coordinate data.
  * 
  * @author  Aleksi Romppainen <aromppa@gmail.com>
  * @version 0.1
