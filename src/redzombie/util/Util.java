@@ -8,9 +8,8 @@ import redzombie.game.level.Level;
 /**
  * Abstract class containing many (static) utility methods.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 30.11.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       30.11.2015
  */
 public abstract class Util {
     

@@ -13,9 +13,8 @@ import redzombie.rendering.Renderer;
 /**
  * This class handles game initialization, termination and contains the game loop.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 30.11.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       30.11.2015
  */
 public class RedZombie {
     

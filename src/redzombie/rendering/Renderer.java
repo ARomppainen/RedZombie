@@ -23,14 +23,13 @@ import redzombie.util.Vec2;
 /**
  * Renderer implementation.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 30.11.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       30.11.2015
  */
 public class Renderer implements AbstractRenderer {
     
-    private Screen screen;
-    private Terminal terminal;
+    private final Screen screen;
+    private final Terminal terminal;
     
     private Set<Vec2> background;
     private Color backgroundColor;
@@ -94,7 +93,6 @@ public class Renderer implements AbstractRenderer {
     }
     
     private void drawLOS(Game g) {
-        // DRAW LINE OF SIGHT
         int minX = g.getPlayer().getPosition().x - (int)g.getPlayer().getSightRange();
         int maxX = g.getPlayer().getPosition().x + (int)g.getPlayer().getSightRange();
         int minY = g.getPlayer().getPosition().y - (int)g.getPlayer().getSightRange();
@@ -109,15 +107,6 @@ public class Renderer implements AbstractRenderer {
                 if (dist <= g.getPlayer().getSightRange()) {
                     if (Util.lineOfSight(g.getLevel(), g.getPlayer().getPosition().x, g.getPlayer().getPosition().y, i, j)) {
                         Tile t = g.getLevel().getTile(i, j);
-                        
-                        /*
-                        screen.putString(
-                                i, j,
-                                t.getDisplayedSymbol(),
-                                t.getDisplayedColor(),
-                                Terminal.Color.BLACK);
-                        */
-                        
                         putString(new Vec2(i, j), t.getDisplayedSymbol(), t.getDisplayedColor());
                     }
                 }
@@ -126,15 +115,6 @@ public class Renderer implements AbstractRenderer {
     }
     
     private void drawPlayer(AbstractPerson player) {
-        /*
-        screen.putString(
-                player.getPosition().x,
-                player.getPosition().y, 
-                player.getSymbol(), 
-                player.getColor(), 
-                Terminal.Color.BLACK);
-        */
-        
         putString(player.getPosition(), player.getSymbol(), player.getColor());
     }
     
@@ -167,7 +147,6 @@ public class Renderer implements AbstractRenderer {
                 sb.append(w.getDamageRoll());
             }
             
-            //screen.putString(5, y, sb.toString(), Terminal.Color.WHITE, Terminal.Color.BLACK);
             putString(new Vec2(5, y), sb.toString(), Color.WHITE);
             
             y++;
@@ -186,12 +165,10 @@ public class Renderer implements AbstractRenderer {
         }
         
         line.stream().forEach((v) -> {
-            //screen.putString(v.x, v.y, "x", Terminal.Color.YELLOW, Terminal.Color.BLACK);
             putString(v, "x", Color.YELLOW);
         });
         
         Vec2 last = line.get(line.size() - 1);
-        //screen.putString(last.x, last.y, "X", Terminal.Color.YELLOW, Terminal.Color.BLACK);
         putString(last, "X", Color.YELLOW);
     }
     

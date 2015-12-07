@@ -20,9 +20,8 @@ import redzombie.util.Vec2;
 /**
  * An abstract class which represents characters in the game (Player, monsters etc.)
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 30.11.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       30.11.2015
  */
 public abstract class AbstractPerson {
     

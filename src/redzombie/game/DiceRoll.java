@@ -4,9 +4,8 @@ package redzombie.game;
  * This class represents a dice roll which are commonly used in pen & paper
  * role-playing games.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 30.11.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       30.11.2015
  */
 public class DiceRoll {
     public int times;

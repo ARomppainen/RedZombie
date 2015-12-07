@@ -1,0 +1,8 @@
+/build/
+/dist/
+/nbproject/
+/doc/
+/doc/RedZombie.zargo
+/doc/RedZombie.zargo~
+build.xml
+manifest.mf

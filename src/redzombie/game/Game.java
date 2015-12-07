@@ -8,16 +8,14 @@ import redzombie.game.characters.AbstractPerson;
 import redzombie.game.characters.PersonFactory;
 import redzombie.game.level.Level;
 import redzombie.game.state.AbstractGameState;
-import redzombie.game.state.GameState;
 import redzombie.game.state.LevelState;
 import redzombie.util.Config;
 
 /**
  * The main game-model class.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 30.11.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       30.11.2015
  */
 public class Game {
     

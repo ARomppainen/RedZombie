@@ -3,9 +3,8 @@ package redzombie.util;
 /**
  * Contains multiple configuration variables.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 4.12.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       4.12.2015
  */
 public abstract class Config {
     public static boolean LIMIT_FPS = true;

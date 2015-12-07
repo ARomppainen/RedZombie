@@ -6,9 +6,8 @@ import redzombie.util.Vec2;
 /**
  * Base class for effects with an area (explosions etc).
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 4.12.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       4.12.2015
  */
 public abstract class AreaOfEffect {
     

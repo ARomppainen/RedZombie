@@ -8,9 +8,8 @@ import redzombie.util.Vec2;
 /**
  * The Level class.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 30.11.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       30.11.2015
  */
 public class Level {
     public static final int WIDTH = 80;

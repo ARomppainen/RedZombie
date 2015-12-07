@@ -8,9 +8,8 @@ import redzombie.util.Direction;
 /**
  * The state which displays the player in level + statistics.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 30.11.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       30.11.2015
  */
 public class LevelState extends AbstractGameState {
 

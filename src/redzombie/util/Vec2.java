@@ -3,9 +3,8 @@ package redzombie.util;
 /**
  * Simple 2-dimensional vector class, used mostly to represent coordinate data.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 30.11.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       30.11.2015
  */
 public class Vec2 {
     public int x;

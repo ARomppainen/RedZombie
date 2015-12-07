@@ -7,9 +7,8 @@ import redzombie.util.Vec2;
 /**
  * Circular area of effect implementation.
  * 
- * @author  Aleksi Romppainen <aromppa@gmail.com>
- * @version 0.1
- * @since 4.12.2015
+ * @author      Aleksi Romppainen <aromppa@gmail.com>
+ * @since       4.12.2015
  */
 public class CircleAOE extends AreaOfEffect {
 
