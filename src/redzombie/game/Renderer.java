@@ -1,4 +1,4 @@
-package redzombie.rendering;
+package redzombie.game;
 
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.terminal.Terminal;
@@ -8,7 +8,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import redzombie.game.Game;
 import redzombie.game.characters.AbstractPerson;
 import redzombie.game.items.AbstractInventory;
 import redzombie.game.items.AbstractItem;
@@ -16,7 +15,7 @@ import redzombie.game.items.AbstractWeapon;
 import redzombie.game.items.AreaOfEffect;
 import redzombie.game.items.StackableItem;
 import redzombie.game.level.Tile;
-import redzombie.game.state.TargetingState;
+import redzombie.util.Config;
 import redzombie.util.Util;
 import redzombie.util.Vec2;
 
@@ -26,73 +25,27 @@ import redzombie.util.Vec2;
  * @author      Aleksi Romppainen <aromppa@gmail.com>
  * @since       30.11.2015
  */
-public class Renderer implements AbstractRenderer {
+public class Renderer {
     
-    private final Screen screen;
-    private final Terminal terminal;
+    private static Screen screen;
+    private static Set<Vec2> background;
+    private static Color backgroundColor;
     
-    private Set<Vec2> background;
-    private Color backgroundColor;
-    
-    public Renderer(Screen screen, Terminal terminal) {
-        this.screen = screen;
-        this.terminal = terminal;
-        
-        background = null;
-        backgroundColor = Color.BLACK;
+    public Renderer(Screen screen) {
+        Renderer.screen = screen;
+        Renderer.background = null;
+        Renderer.backgroundColor = Color.BLACK;
     }
     
-    @Override
     public void render(Game g) {
-        switch(g.getGameState().getType()) {
-            case STATE_LEVEL:
-                drawLevelState(g);
-                break;
-            case STATE_INVENTORY:
-                drawInventoryState(g);
-                break;
-            case STATE_TARGETING:
-                drawTargetingState(g);
-                break;
-        }
-    }
-    
-    private void drawLevelState(Game g) {
         screen.clear();
         
-        resetBackground();
-        drawLOS(g);
-        drawPlayer(g.getPlayer());
-        drawStatistics(g);
+        g.getGameState().render();
         
         screen.refresh();
     }
     
-    private void drawInventoryState(Game g) {
-        screen.clear();
-
-        resetBackground();
-        drawInventory(g.getPlayer().getInventory());
-        
-        screen.refresh();
-    }
-    
-    private void drawTargetingState(Game g) {
-        screen.clear();
-        
-        TargetingState ts = (TargetingState)g.getGameState();
-        
-        setBackground(ts.getAOE(), Color.CYAN);
-        drawLOS(g);
-        drawStatistics(g);
-        drawLine(ts.getOrigin(), ts.getTarget());
-        
-        drawPlayer(g.getPlayer());
-        
-        screen.refresh();
-    }
-    
-    private void drawLOS(Game g) {
+    public static void drawLOS(Game g) {
         int minX = g.getPlayer().getPosition().x - (int)g.getPlayer().getSightRange();
         int maxX = g.getPlayer().getPosition().x + (int)g.getPlayer().getSightRange();
         int minY = g.getPlayer().getPosition().y - (int)g.getPlayer().getSightRange();
@@ -114,11 +67,11 @@ public class Renderer implements AbstractRenderer {
         }
     }
     
-    private void drawPlayer(AbstractPerson player) {
+    public static void drawPlayer(AbstractPerson player) {
         putString(player.getPosition(), player.getSymbol(), player.getColor());
     }
     
-    private void drawStatistics(Game g) {
+    public static void drawStatistics(Game g) {
         screen.putString(
                 0, 26,
                 "Health: " + g.getPlayer().getCurrentHealth() + " / " + g.getPlayer().getMaxHealth(),
@@ -126,7 +79,7 @@ public class Renderer implements AbstractRenderer {
                 Terminal.Color.BLACK);
     }
     
-    private void drawInventory(AbstractInventory<AbstractItem> inv) {
+    public static void drawInventory(AbstractInventory<AbstractItem> inv) {
         int y = 5;
         int index = 1;
         
@@ -154,7 +107,7 @@ public class Renderer implements AbstractRenderer {
         }
     }
     
-    private void drawLine(Vec2 from, Vec2 to) {
+    public static void drawLine(Vec2 from, Vec2 to, String lineChar, String targetChar) {
         List<Vec2> line;
         
         if (from.equals(to)) {
@@ -165,14 +118,14 @@ public class Renderer implements AbstractRenderer {
         }
         
         line.stream().forEach((v) -> {
-            putString(v, "x", Color.YELLOW);
+            putString(v, lineChar, Color.YELLOW);
         });
         
         Vec2 last = line.get(line.size() - 1);
-        putString(last, "X", Color.YELLOW);
+        putString(last, targetChar, Color.YELLOW);
     }
     
-    private void setBackground(AreaOfEffect aoe, Color color) {
+    public static void setBackground(AreaOfEffect aoe, Color color) {
         if (aoe == null) {
             background = null;
             backgroundColor = Color.BLACK;
@@ -187,16 +140,26 @@ public class Renderer implements AbstractRenderer {
         }
     }
     
-    private void resetBackground() {
+    public static void resetBackground() {
         background = null;
         backgroundColor = Color.BLACK;
     }
     
-    private void putString(Vec2 pos, String text, Color c) {
+    public static void putString(Vec2 pos, String text, Color c) {
         if (background != null && background.contains(pos)) {
             screen.putString(pos.x, pos.y, text, c, backgroundColor);
         } else {
             screen.putString(pos.x, pos.y, text, c, Color.BLACK);
+        }
+    }
+    
+    public static void putStringDebug(Vec2 pos, String text, Color c) {
+        if (Config.DEBUG) {
+            if (background != null && background.contains(pos)) {
+            screen.putString(pos.x, pos.y, text, c, backgroundColor);
+            } else {
+                screen.putString(pos.x, pos.y, text, c, Color.BLACK);
+            }
         }
     }
 }

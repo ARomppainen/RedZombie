@@ -7,8 +7,7 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.terminal.Terminal;
 
 import redzombie.game.Game;
-import redzombie.rendering.AbstractRenderer;
-import redzombie.rendering.Renderer;
+import redzombie.game.Renderer;
 
 /**
  * This class handles game initialization, termination and contains the game loop.
@@ -29,7 +28,7 @@ public class RedZombie {
     private Terminal terminal;
     
     private Game game;
-    private AbstractRenderer renderer;
+    private Renderer renderer;
     
     public RedZombie() {
         
@@ -57,7 +56,7 @@ public class RedZombie {
         screen.setCursorPosition(null); // hide cursor
         
         game = new Game(screen);
-        renderer = new Renderer(screen, terminal);
+        renderer = new Renderer(screen);
     }
 
     /**

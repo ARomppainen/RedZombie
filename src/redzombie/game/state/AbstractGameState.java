@@ -16,6 +16,6 @@ public abstract class AbstractGameState {
         this.game = g;
     }
     
-    public abstract GameState getType();
     public abstract boolean update();
+    public abstract void render();
 }

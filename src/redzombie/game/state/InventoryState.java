@@ -2,6 +2,7 @@ package redzombie.game.state;
 
 import com.googlecode.lanterna.input.Key;
 import redzombie.game.Game;
+import redzombie.game.Renderer;
 
 /**
  * The state for viewing the player's inventory.
@@ -20,11 +21,6 @@ public class InventoryState extends AbstractGameState {
     }
 
     @Override
-    public GameState getType() {
-        return GameState.STATE_INVENTORY;
-    }
-
-    @Override
     public boolean update() {
         Key k = game.getScreen().readInput();
         
@@ -35,5 +31,11 @@ public class InventoryState extends AbstractGameState {
         }
         
         return false;
+    }
+
+    @Override
+    public void render() {
+        Renderer.resetBackground();
+        Renderer.drawInventory(game.getPlayer().getInventory());
     }
 }

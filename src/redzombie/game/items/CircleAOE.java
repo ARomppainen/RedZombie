@@ -1,7 +1,7 @@
 package redzombie.game.items;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import redzombie.util.Vec2;
 
 /**
@@ -32,7 +32,7 @@ public class CircleAOE extends AreaOfEffect {
      * {@inheritDoc}
      */
     @Override
-    public List<Vec2> getArea() {
+    public Set<Vec2> getArea() {
         if (area == null) {
             calcArea();
         }
@@ -44,7 +44,7 @@ public class CircleAOE extends AreaOfEffect {
      * Calculates the list of coordinate points for the area.
      */
     private void calcArea() {
-        area = new ArrayList<>();
+        area = new HashSet<>();
         
         int minX = position.x - (int)radius;
         int maxX = position.x + (int)radius;

@@ -1,6 +1,6 @@
 package redzombie.game.items;
 
-import java.util.List;
+import java.util.Set;
 import redzombie.util.Vec2;
 
 /**
@@ -16,7 +16,7 @@ public class SquareAOE extends AreaOfEffect {
     }
 
     @Override
-    public List<Vec2> getArea() {
+    public Set<Vec2> getArea() {
         return null; // TODO: method stub
     }
 }

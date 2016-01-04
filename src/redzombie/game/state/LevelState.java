@@ -1,9 +1,12 @@
 package redzombie.game.state;
 
 import com.googlecode.lanterna.input.Key;
+import com.googlecode.lanterna.terminal.Terminal.Color;
 import redzombie.game.Game;
 import redzombie.game.items.CircleAOE;
+import redzombie.game.Renderer;
 import redzombie.util.Direction;
+import redzombie.util.Vec2;
 
 /**
  * The state which displays the player in level + statistics.
@@ -15,11 +18,6 @@ public class LevelState extends AbstractGameState {
 
     public LevelState(Game g) {
         super(g);
-    }
-
-    @Override
-    public GameState getType() {
-        return GameState.STATE_LEVEL;
     }
 
     @Override
@@ -57,5 +55,17 @@ public class LevelState extends AbstractGameState {
         }
         
         return false;
+    }
+
+    @Override
+    public void render() {
+        Renderer.resetBackground();
+        Renderer.drawLOS(game);
+        Renderer.drawPlayer(game.getPlayer());
+        Renderer.drawStatistics(game);
+        
+        Renderer.putStringDebug(new Vec2(81, 0), "Debug:", Color.WHITE);
+        Renderer.putStringDebug(new Vec2(81, 1), "LevelState", Color.WHITE);
+        Renderer.putStringDebug(new Vec2(81, 2), "DeltaTime: " + Long.toString(game.getDeltaTime()), Color.WHITE);
     }
 }

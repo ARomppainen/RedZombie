@@ -206,4 +206,19 @@ public abstract class Util {
     public static Vec2 newPos(Vec2 v, Direction d) {
         return newPos(v.x, v.y, d);
     }
+    
+    public static int lerp(int v0, int v1, float t) {
+        return (int)((1.0f - t) * v0) + (int)(t * v1); 
+    }
+    
+    public static float lerp(float v0, float v1, float t) {
+        return (1.0f - t) * v0 + t * v1;
+    }
+    
+    public static float distance(Vec2 p1, Vec2 p2) {
+        // vector from p1 to p2
+        Vec2 v = new Vec2(p2.x - p1.x, p2.y - p1.y);
+        
+        return (float)Math.sqrt(v.x * v.x + v.y * v.y);
+    }
 }
